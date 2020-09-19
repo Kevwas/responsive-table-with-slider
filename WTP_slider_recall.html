@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+</head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-right: 30px;
+    }
+    
+    .image-container {
+        display: flex;
+        flex-direction: row;
+        margin: 10px;
+        max-width: 620px;
+        min-width: 400px;
+        min-height: 150px;
+        /* flex-wrap: wrap; */
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.1);
+        border: black 0.5px solid;
+        border-radius: 10px;
+        /* background-color: red; */
+    }
+    
+    .image-container>img {
+        width: 130px;
+        height: auto;
+        margin: 10px;
+        border: black 0.5px solid;
+        border-radius: 10px;
+    }
+    
+    .text-container>p {
+        margin: 1px;
+        /* width: 200px; */
+    }
+    
+    .text-container {
+        margin: 5px;
+        width: 200px;
+    }
+    
+    .list-container {
+        margin: 5px;
+        width: 200px;
+        margin-right: -130px;
+        /* background-color: rgba(0, 0, 0, 0.1); */
+    }
+    /* .image-container>p {
+        margin: 20px;
+        font-size: 1em;
+        background-color: red;
+        text-align: justify;
+    } */
+    /* Slider Styles */
+    
+    .slidecontainer {
+        transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        /* padding: 5px; */
+        padding-right: 0;
+        /* background-color: red; */
+        margin-left: 10px;
+        margin-right: -10px;
+    }
+    /* Custom range slider_1  */
+    
+    .slider_1 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        -webkit-appearance: none;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+    
+    .slider_1:hover {
+        opacity: 1;
+    }
+    
+    .slider_1::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+    
+    .slider_1::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+    /* Custom range slider_2  */
+    
+    .slider_2 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        -webkit-appearance: none;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        height: 15px;
+        border-radius: 10px;
+    }
+    
+    .slider_2:hover {
+        opacity: 1;
+    }
+    
+    .slider_2::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 10px;
+        height: 100px;
+        border-radius: 10px;
+        background: #ffee07;
+        cursor: pointer;
+    }
+    
+    .slider_2::-moz-range-thumb {
+        width: 10px;
+        height: 100px;
+        border-radius: 10px;
+        background: #afad4c;
+        cursor: pointer;
+    }
+    /* Custom range slider_3  */
+    
+    .slider_3 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        -webkit-appearance: none;
+        background: #d3d3d3;
+        border: 0.2px solid rgba(0, 0, 0, 0.3);
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        height: 15px;
+        border-radius: 10px;
+    }
+    
+    .slider_3:hover {
+        opacity: 1;
+    }
+    
+    .slider_3::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 100px;
+        background: rgba(250, 0, 0, 0.3);
+        cursor: pointer;
+        border: 1px solid black;
+    }
+    
+    .slider_3::-moz-range-thumb {
+        width: 15px;
+        height: 100px;
+        background: #afad4c;
+        cursor: pointer;
+    }
+    /* Custom range slider_4  */
+    
+    .slider_4 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        -webkit-appearance: none;
+        background: #d3d3d3;
+        border: 0.2px solid rgba(0, 0, 0, 0.3);
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        height: 15px;
+        width: 110px;
+        /* border-radius: 10px;  */
+    }
+    
+    .slider_4:hover {
+        opacity: 1;
+    }
+    
+    .slider_4::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        display: flex;
+        height: 280px;
+        background: rgba(0, 250, 0, 0.3);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        /* border-bottom-left-radius: 10px;  */
+        /* border-bottom-right-radius: 10px;  */
+        cursor: pointer;
+        border: 1px solid black;
+    }
+    
+    .slider_4::-moz-range-thumb {
+        width: 20px;
+        height: 280px;
+        background: #afad4c;
+        cursor: pointer;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .slider_4::-webkit-slider-thumb {
+            height: 260px;
+        }
+        .slider_4::-moz-range-thumb {
+            height: 260px;
+        }
+    }
+    
+    @media only screen and (max-width: 550px) {
+        .slider_4::-webkit-slider-thumb {
+            height: 240px;
+        }
+        .slider_4::-moz-range-thumb {
+            height: 240px;
+        }
+    }
+    
+    @media only screen and (max-width: 500px) {
+        .slider_4::-webkit-slider-thumb {
+            height: 230px;
+        }
+        .slider_4::-moz-range-thumb {
+            height: 230px;
+        }
+    }
+    
+    @media only screen and (max-width: 450px) {
+        .slider_4::-webkit-slider-thumb {
+            height: 210px;
+        }
+        .slider_4::-moz-range-thumb {
+            height: 210px;
+        }
+    }
+    
+    @media only screen and (max-width: 400px) {
+        .slider_4::-webkit-slider-thumb {
+            height: 200px;
+        }
+        .slider_4::-moz-range-thumb {
+            height: 200px;
+        }
+    }
+</style>
+
+<body>
+    <!-- Container for the image gallery -->
+    <div class="container">
+
+
+        <div class="image-container">
+            <img src="./images/bugs_cropped.png" alt="some text">
+            <!-- <div class="list-and-slider-container"> -->
+            <div class="list-container">
+                <ul style="list-style-type: none;">
+                    <li>
+                        <p style="line-height:140%">YES!&nbsp Absolutely!</p>
+                    </li>
+                    <li></li>
+                    <p style="line-height:140%">&nbsp
+                        </li>
+                        <li>
+                            <p style="line-height:140%">Maybe.&nbsp It depends.</p>
+                        </li>
+                        <li>
+                            <p style="line-height:140%">&nbsp</p>
+                        </li>
+                        <li>
+                            <p style="line-height:140%">NO WAY!&nbsp It's not broken.</p>
+                        </li>
+                </ul>
+            </div>
+            <!-- Custom range slider_4 -->
+            <div class="slidecontainer">
+                <input type="range" class="slider_4" min="1" max="3" value="2" onchange="myFunction2()" id="opt2">
+            </div>
+            <!-- </div> -->
+        </div>
+
+    </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            let value = document.getElementById("opt1").value;
+            console.log("Left Range Slider Value: " + value);
+        }
+
+        function myFunction2() {
+            let value = document.getElementById("opt2").value;
+            console.log("Right Range Slider Value: " + value);
+        }
+    </script>
+</body>
+
+</html>
