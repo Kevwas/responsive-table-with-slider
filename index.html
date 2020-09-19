@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+</head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-right: 30px;
+    }
+    
+    .image-container {
+        display: flex;
+        flex-direction: row;
+        margin: 10px;
+        max-width: 350px;
+        min-width: 320px;
+        min-height: 150px;
+        /* flex-wrap: wrap; */
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.1);
+        border: black 0.5px solid;
+        border-radius: 10px;
+        /* background-color: red; */
+    }
+    
+    .image-container>img {
+        width: 80px;
+        height: auto;
+        margin: 10px;
+        border: black 0.5px solid;
+        border-radius: 10px;
+    }
+    
+    .text-container>p {
+        margin: 1px;
+        /* width: 200px; */
+    }
+    
+    .text-container {
+        margin: 5px;
+        width: 100px;
+    }
+    
+    .list-container {
+        margin: 5px;
+        width: 100px;
+        margin-right: -130px;
+        /* background-color: rgba(0, 0, 0, 0.1); */
+    }
+    /* .image-container>p {
+        margin: 20px;
+        font-size: 1em;
+        background-color: red;
+        text-align: justify;
+    } */
+    /* Slider Styles */
+    
+    .slidecontainer {
+        transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        /* padding: 5px; */
+        padding-right: 0;
+        /* background-color: red; */
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    /* Custom range slider_1  */
+    
+    .slider_1 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        -webkit-appearance: none;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+    
+    .slider_1:hover {
+        opacity: 1;
+    }
+    
+    .slider_1::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+    
+    .slider_1::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+    /* Custom range slider_2  */
+    
+    .slider_2 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        -webkit-appearance: none;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        height: 15px;
+        border-radius: 10px;
+    }
+    
+    .slider_2:hover {
+        opacity: 1;
+    }
+    
+    .slider_2::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 10px;
+        height: 100px;
+        border-radius: 10px;
+        background: #ffee07;
+        cursor: pointer;
+    }
+    
+    .slider_2::-moz-range-thumb {
+        width: 10px;
+        height: 100px;
+        border-radius: 10px;
+        background: #afad4c;
+        cursor: pointer;
+    }
+    /* Custom range slider_3  */
+    
+    .slider_3 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        -webkit-appearance: none;
+        background: #d3d3d3;
+        border: 0.2px solid rgba(0, 0, 0, 0.3);
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        height: 15px;
+        border-radius: 10px;
+    }
+    
+    .slider_3:hover {
+        opacity: 1;
+    }
+    
+    .slider_3::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 100px;
+        background: rgba(250, 0, 0, 0.3);
+        cursor: pointer;
+        border: 1px solid black;
+    }
+    
+    .slider_3::-moz-range-thumb {
+        width: 15px;
+        height: 100px;
+        background: #afad4c;
+        cursor: pointer;
+    }
+    /* Custom range slider_4  */
+    
+    .slider_4 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        -webkit-appearance: none;
+        background: #d3d3d3;
+        border: 0.2px solid rgba(0, 0, 0, 0.3);
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        height: 15px;
+        width: 110px;
+        border-radius: 10px;
+    }
+    
+    .slider_4:hover {
+        opacity: 1;
+    }
+    
+    .slider_4::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 15px;
+        display: flex;
+        height: 150px;
+        background: rgba(250, 0, 0, 0.3);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        cursor: pointer;
+        border: 1px solid black;
+    }
+    
+    .slider_4::-moz-range-thumb {
+        width: 15px;
+        height: 130px;
+        background: #afad4c;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <!-- Container for the image gallery -->
+    <div class="container">
+
+        <div class="image-container">
+            <img src="./images/beaver_busy.jpg" alt="some text">
+            <div class="text-container">
+                <p>I will join the front lines, and put my shoulder to the wheel.</p>
+            </div>
+            <!-- Default range slider -->
+            <div class="slidecontainer">
+                <input type="range" min="1" max="9" value="5" onchange="myFunction()" id="opt1">
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="./images/beaver_light_duty.jpg" alt="some text">
+            <div class="text-container">
+                <p>I will register and start doing light duty things.</p>
+            </div>
+            <!-- Custom range slider_1 -->
+            <div class="slidecontainer">
+                <input type="range" class="slider_1" min="1" max="9" value="5" onchange="myFunction2()" id="opt2">
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="./images/beaver-cartoon.jpg" alt="some text">
+            <div class="text-container">
+                <p>I will register and cheer on the rest of you, primarily by clicking “Like” on various things.</p>
+            </div>
+            <!-- Custom range slider_2 -->
+            <div class="slidecontainer">
+                <input type="range" class="slider_2" min="1" max="9" value="5" onchange="myFunction2()" id="opt2">
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="./images/beaver_003.jpg" alt="some text">
+            <div class="text-container">
+                <p>I will register, delegate my vote, then tag along for the ride.</p>
+            </div>
+            <!-- Custom range slider_3 -->
+            <div class="slidecontainer">
+                <input type="range" class="slider_3" min="1" max="9" value="5" onchange="myFunction2()" id="opt2">
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="./images/beaver_busy.jpg" alt="some text">
+            <!-- <div class="list-and-slider-container"> -->
+            <div class="list-container">
+                <ul>
+                    <li>
+                        <p>opc 1</p>
+                    </li>
+                    <li>
+                        <p>opc 2</p>
+                    </li>
+                    <li>
+                        <p>opc 3</p>
+                    </li>
+                    <li>
+                        <p>opc 4</p>
+                    </li>
+                    <li>
+                        <p>opc 5</p>
+                    </li>
+                    <li>
+                        <p>opc 6</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- Custom range slider_4 -->
+            <div class="slidecontainer">
+                <input type="range" class="slider_4" min="1" max="6" value="3" onchange="myFunction2()" id="opt2">
+            </div>
+            <!-- </div> -->
+        </div>
+
+
+        <div class="image-container">
+            <img src="./images/matrix_agent_smith.jpg" alt="some text">
+            <div class="text-container">
+                <p>I currently have insider perks that will no doubt be lost, so I will be a drag on what you are doing.</p>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="./images/pig.jpg" alt="some text">
+            <div class="text-container">
+                <p>This threatens my current privileges, power and control substantially, so I will be a roadblock.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            let value = document.getElementById("opt1").value;
+            console.log("Left Range Slider Value: " + value);
+        }
+
+        function myFunction2() {
+            let value = document.getElementById("opt2").value;
+            console.log("Right Range Slider Value: " + value);
+        }
+    </script>
+</body>
+
+</html>
