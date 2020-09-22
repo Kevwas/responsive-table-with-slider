@@ -154,11 +154,13 @@
         margin: 10px;
     }
     
-    .range-slider>input.range {
+    .range-slider>input.range,
+    input.range-2 {
         width: 100%;
     }
     
-    .range-slider>.range-badge {
+    .range-slider>.range-badge,
+    .range-badge-2 {
         position: absolute;
         left: 50%;
         top: 20px;
@@ -253,8 +255,8 @@
             </div>
         </div>
         <div class="range-slider">
-            <input type="range" class="range" min="0" max="10" step="1" value="5" onchange="updateOutput()" />
-            <div class="range-badge">5</div>
+            <input type="range" class="range-2" min="0" max="10" step="1" value="5" onchange="updateOutput()" />
+            <div class="range-badge-2">5</div>
         </div>
 
     </div>
@@ -288,11 +290,20 @@
         // Update bubble with transition
         $(document).ready(function() {
             var badge = $('.range-badge');
+            var badge_2 = $('.range-badge-2');
 
             $('.range').on('change', function() {
                 var current = $(this).val();
 
                 badge.text(current).animate({
+                    'left': current * 10 + '%'
+                });
+            });
+
+            $('.range-2').on('change', function() {
+                var current = $(this).val();
+
+                badge_2.text(current).animate({
                     'left': current * 10 + '%'
                 });
             });
