@@ -187,6 +187,7 @@
     
     .text {
         font-weight: 700;
+        font-size: 0.85em;
     }
 </style>
 
@@ -224,12 +225,28 @@
             <!-- </div> -->
         </div>
 
-        <div class="text-container2">
+        <div class="text-container2" style="margin-top: 15px;">
             <div class="text">
                 <p>LOW</p>
             </div>
             <div class="text">
                 <p>Rate the level of importance (to you)</p>
+            </div>
+            <div class="text">
+                <p>HIGH</p>
+            </div>
+        </div>
+        <div class="range-slider">
+            <input type="range" class="range" min="0" max="10" step="1" value="5" onchange="updateOutput()" />
+            <div class="range-badge">5</div>
+        </div>
+
+        <div class="text-container2" style="margin-top: 30px;">
+            <div class="text">
+                <p>LOW</p>
+            </div>
+            <div class="text">
+                <p>Rate the level of urgency (as perceived by you)</p>
             </div>
             <div class="text">
                 <p>HIGH</p>
