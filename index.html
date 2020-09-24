@@ -260,8 +260,8 @@
     <!-- Container for the image gallery -->
     <div class="container">
 
-        <!-- <a href="http://localhost:8080/WTP_slider_recall.html"> -->
-        <a href="https://kevwas.github.io/responsive-table-with-slider/WTP_slider_recall.html">
+        <a href="http://localhost:8080/WTP_slider_recall.html">
+            <!-- <a href="https://kevwas.github.io/responsive-table-with-slider/WTP_slider_recall.html"> -->
             <h3>
                 Go to next page
             </h3>
@@ -390,6 +390,8 @@
     <script>
         console.log(localStorage);
 
+        document.getElementById("opt1").addEventListener("mousemove", () => myFunction());
+
         function myFunction() {
             let value = document.getElementById("opt1").value;
             localStorage.setItem("myInputValue_1", value);
@@ -400,6 +402,8 @@
             let vr_1 = document.getElementById("VS_1");
             vr_1.innerText = localStorage.getItem("myInputValue_1");
         }
+
+        document.getElementById("opt2").addEventListener("mousemove", () => myFunction2());
 
         function myFunction2() {
             let value = document.getElementById("opt2").value;
