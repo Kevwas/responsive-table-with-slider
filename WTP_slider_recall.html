@@ -192,6 +192,7 @@
         font-weight: 700;
         font-size: 0.85em;
     }
+    /* Table styling */
     
     table {
         margin-top: 30px;
@@ -202,6 +203,16 @@
     th,
     td {
         border: 1px solid black;
+        border-collapse: collapse;
+    }
+    
+    th,
+    td {
+        padding: 15px;
+    }
+    
+    th {
+        text-align: left;
     }
 </style>
 
@@ -272,18 +283,33 @@
             <div class="range-badge-2">5</div>
         </div>
 
-        <table style="width:100%; max-width: 350px; min-width: 320px">
+        <table style="width:100%; max-width:350px; min-width: 320px">
             <tr>
                 <th>Page 1</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Vertical Slider Top</td>
+                <td id="VS_1"></td>
+            </tr>
+            <tr>
+                <td>Vertical Slider Bottom</td>
+                <td id="VS_2"></td>
+            </tr>
+        </table>
+
+        <table style="width:100%; max-width:350px; min-width: 320px">
+            <tr>
                 <th>Page 2</th>
+                <th>Value</th>
             </tr>
             <tr>
-                <td id="VS_1">Vertical Slider 1: </td>
-                <td id="HS_1">Horizontal Slider 1: </td>
+                <td>Horizontal Slider Top</td>
+                <td id="HS_1"> </td>
             </tr>
             <tr>
-                <td id="VS_2">Vertical Slider 2: </td>
-                <td id="HS_2">Horizontal Slider 2: </td>
+                <td>Horizontal Slider Bottom</td>
+                <td id="HS_2"></td>
             </tr>
         </table>
 
@@ -320,7 +346,7 @@
             console.log(localStorage);
 
             let hr_1 = document.getElementById("HS_1");
-            hr_1.innerText = "Horizontal Slider 1: " + localStorage.getItem("myInputValue_3");
+            hr_1.innerText = localStorage.getItem("myInputValue_3");
         }
 
         function updateOutput_2() {
@@ -336,7 +362,7 @@
             console.log(localStorage);
 
             let hr_2 = document.getElementById("HS_2");
-            hr_2.innerText = "Horizontal Slider 2: " + localStorage.getItem("myInputValue_4");
+            hr_2.innerText = localStorage.getItem("myInputValue_4");
         }
 
         // Updating the upper horizontal slider value on the html:
@@ -355,18 +381,18 @@
 
         // Updating the upper horizontal slider value on the table:
         let hs_1 = document.getElementById("HS_1");
-        hs_1.innerText = "Horizontal Slider 1: " + localStorage.getItem("myInputValue_3");
+        hs_1.innerText = localStorage.getItem("myInputValue_3");
 
         // Updating the bottom horizontal slider value on the table:
         let hs_2 = document.getElementById("HS_2");
-        hs_2.innerText = "Horizontal Slider 2: " + localStorage.getItem("myInputValue_4");
+        hs_2.innerText = localStorage.getItem("myInputValue_4");
 
         // Updating the values of the vertical slider from the main page on the table
         let vs_1 = document.getElementById("VS_1"); // Vertical slider 1
         let vs_2 = document.getElementById("VS_2"); // Vertical slider 2
 
-        vs_1.innerText = "Vertical Slider 1: " + localStorage.getItem("myInputValue_1");
-        vs_2.innerText = "Vertical Slider 2: " + localStorage.getItem("myInputValue_2");
+        vs_1.innerText = localStorage.getItem("myInputValue_1");
+        vs_2.innerText = localStorage.getItem("myInputValue_2");
 
         // Update bubble with transition
         // $(document).ready(function() {
