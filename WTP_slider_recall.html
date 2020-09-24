@@ -224,7 +224,8 @@
     <!-- Container for the image gallery -->
     <div class="container">
 
-        <a href="https://kevwas.github.io/responsive-table-with-slider/">
+        <!-- <a href="https://kevwas.github.io/responsive-table-with-slider/"> -->
+        <a href="http://localhost:8080/">
             <h3>
                 Go back
             </h3>
@@ -299,11 +300,11 @@
             </tr>
             <tr>
                 <td>Vertical Slider Top</td>
-                <td id="VS_1"></td>
+                <td id="VS_1">5</td>
             </tr>
             <tr>
                 <td>Vertical Slider Bottom</td>
-                <td id="VS_2"></td>
+                <td id="VS_2">5</td>
             </tr>
         </table>
 
@@ -314,11 +315,11 @@
             </tr>
             <tr>
                 <td>Horizontal Slider Top</td>
-                <td id="HS_1"> </td>
+                <td id="HS_1">5</td>
             </tr>
             <tr>
                 <td>Horizontal Slider Bottom</td>
-                <td id="HS_2"></td>
+                <td id="HS_2">5</td>
             </tr>
         </table>
 
@@ -374,34 +375,43 @@
             hr_2.innerText = localStorage.getItem("myInputValue_4");
         }
 
-        // Updating the upper horizontal slider value on the html:
-        document.querySelector(".range").value = localStorage.getItem("myInputValue_3")
-        let badge_1 = document.querySelector(".range-badge");
 
-        badge_1.innerHTML = localStorage.getItem("myInputValue_3");
-        badge_1.style.left = localStorage.getItem("myInputValue_3") * 10 + '%';
+        if (localStorage.getItem("myInputValue_3")) { // if the value has been saved on the local storage
+            // Updating the upper horizontal slider value on the html:
+            document.querySelector(".range").value = localStorage.getItem("myInputValue_3")
+            let badge_1 = document.querySelector(".range-badge");
 
-        // Updating the bottom horizontal slider value on the html:
-        document.querySelector(".range-2").value = localStorage.getItem("myInputValue_4")
-        let badge_2 = document.querySelector(".range-badge-2");
+            badge_1.innerHTML = localStorage.getItem("myInputValue_3");
+            badge_1.style.left = localStorage.getItem("myInputValue_3") * 10 + '%';
 
-        badge_2.innerHTML = localStorage.getItem("myInputValue_4");
-        badge_2.style.left = localStorage.getItem("myInputValue_4") * 10 + '%';
+            // Updating the upper horizontal slider value on the table:
+            let hs_1 = document.getElementById("HS_1");
+            hs_1.innerText = localStorage.getItem("myInputValue_3");
+        }
 
-        // Updating the upper horizontal slider value on the table:
-        let hs_1 = document.getElementById("HS_1");
-        hs_1.innerText = localStorage.getItem("myInputValue_3");
+        if (localStorage.getItem("myInputValue_4")) { // if the value has been saved on the local storage
+            // Updating the bottom horizontal slider value on the html:
+            document.querySelector(".range-2").value = localStorage.getItem("myInputValue_4")
+            let badge_2 = document.querySelector(".range-badge-2");
 
-        // Updating the bottom horizontal slider value on the table:
-        let hs_2 = document.getElementById("HS_2");
-        hs_2.innerText = localStorage.getItem("myInputValue_4");
+            badge_2.innerHTML = localStorage.getItem("myInputValue_4");
+            badge_2.style.left = localStorage.getItem("myInputValue_4") * 10 + '%';
 
-        // Updating the values of the vertical slider from the main page on the table
-        let vs_1 = document.getElementById("VS_1"); // Vertical slider 1
-        let vs_2 = document.getElementById("VS_2"); // Vertical slider 2
+            // Updating the bottom horizontal slider value on the table:
+            let hs_2 = document.getElementById("HS_2");
+            hs_2.innerText = localStorage.getItem("myInputValue_4");
+        }
 
-        vs_1.innerText = localStorage.getItem("myInputValue_1");
-        vs_2.innerText = localStorage.getItem("myInputValue_2");
+        // Updating the values of the vertical sliders from the main page on the table
+        if (localStorage.getItem("myInputValue_1")) { // if the value has been saved on the local storage
+            let vs_1 = document.getElementById("VS_1"); // Vertical slider 1
+            vs_1.innerText = localStorage.getItem("myInputValue_1");
+        }
+
+        if (localStorage.getItem("myInputValue_2")) { // if the value has been saved on the local storage
+            let vs_2 = document.getElementById("VS_2"); // Vertical slider 2
+            vs_2.innerText = localStorage.getItem("myInputValue_2");
+        }
 
         // Update bubble with transition
         // $(document).ready(function() {
