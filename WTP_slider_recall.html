@@ -22,6 +22,7 @@
         width: 50%;
         margin-right: 30px;
         justify-content: center;
+        margin: 30px;
     }
     
     .image-container {
@@ -191,13 +192,24 @@
         font-weight: 700;
         font-size: 0.85em;
     }
+    
+    table {
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
 </style>
 
 <body>
     <!-- Container for the image gallery -->
     <div class="container">
 
-
+        <a href="http://localhost:8080/index.html">Go back</a>
         <div class="image-container">
             <img src="./images/bugs_cropped.png" alt="some text">
             <!-- <div class="list-and-slider-container"> -->
@@ -221,9 +233,9 @@
                     </li>
                 </ul>
             </div>
-            <!-- Custom range slider_4 -->
+            <!-- Custom range slider -->
             <div class="slidecontainer">
-                <input type="range" class="slider_4" min="1" max="3" value="2" onchange="myFunction2()" id="opt2">
+                <input type="range" class="slider_4" min="1" max="3" value="2" onchange="myFunction()" id="opt">
             </div>
             <!-- </div> -->
         </div>
@@ -260,22 +272,37 @@
             <div class="range-badge-2">5</div>
         </div>
 
+        <table style="width:100%; max-width: 350px; min-width: 320px">
+            <tr>
+                <th>Page 1</th>
+                <th>Page 2</th>
+            </tr>
+            <tr>
+                <td id="VS_1">Vertical Slider 1: </td>
+                <td id="HS_1">Horizontal Slider 1: </td>
+            </tr>
+            <tr>
+                <td id="VS_2">Vertical Slider 2: </td>
+                <td id="HS_2">Horizontal Slider 2: </td>
+            </tr>
+        </table>
+
     </div>
     </div>
 
     <script>
+        let value_1 = localStorage.getItem("myInputValue_1");
+        let value_2 = localStorage.getItem("myInputValue_2");
+
+        console.log(localStorage);
+        console.log("value_1 from last page: ", value_1);
+        console.log("value_2 from last page: ", value_2);
+
         function myFunction() {
-            let value = document.getElementById("opt1").value;
-            console.log("Left Range Slider Value: " + value);
+            let value = document.getElementById("opt").value;
+            console.log("Vertical Slider value: " + value);
         }
 
-        function myFunction2() {
-            let value = document.getElementById("opt2").value;
-            console.log("Right Range Slider Value: " + value);
-        }
-    </script>
-
-    <script>
         // Update bubble without transition (you can uncomment this 
         // and comment the code on the bottom to get the bubble updated 
         // without any transition effect).
@@ -283,19 +310,63 @@
         function updateOutput_1() {
             let value = document.querySelector(".range").value;
             let badge = document.querySelector(".range-badge");
-            let current = badge.innerHTML;
+
             badge.innerHTML = value;
             badge.style.left = value * 10 + '%';
+
+            localStorage.setItem("myInputValue_3", value);
+
+            console.log("Upper Range Slider Value: " + value);
+            console.log(localStorage);
+
+            let hr_1 = document.getElementById("HS_1");
+            hr_1.innerText = "Horizontal Slider 1: " + localStorage.getItem("myInputValue_3");
         }
 
         function updateOutput_2() {
             let value = document.querySelector(".range-2").value;
             let badge = document.querySelector(".range-badge-2");
-            let current = badge.innerHTML;
+
             badge.innerHTML = value;
             badge.style.left = value * 10 + '%';
+
+            localStorage.setItem("myInputValue_4", value);
+
+            console.log("Bottom Range Slider Value: " + value);
+            console.log(localStorage);
+
+            let hr_2 = document.getElementById("HS_2");
+            hr_2.innerText = "Horizontal Slider 2: " + localStorage.getItem("myInputValue_4");
         }
 
+        // Updating the upper horizontal slider value on the html:
+        document.querySelector(".range").value = localStorage.getItem("myInputValue_3")
+        let badge_1 = document.querySelector(".range-badge");
+
+        badge_1.innerHTML = localStorage.getItem("myInputValue_3");
+        badge_1.style.left = localStorage.getItem("myInputValue_3") * 10 + '%';
+
+        // Updating the bottom horizontal slider value on the html:
+        document.querySelector(".range-2").value = localStorage.getItem("myInputValue_4")
+        let badge_2 = document.querySelector(".range-badge-2");
+
+        badge_2.innerHTML = localStorage.getItem("myInputValue_4");
+        badge_2.style.left = localStorage.getItem("myInputValue_4") * 10 + '%';
+
+        // Updating the upper horizontal slider value on the table:
+        let hs_1 = document.getElementById("HS_1");
+        hs_1.innerText = "Horizontal Slider 1: " + localStorage.getItem("myInputValue_3");
+
+        // Updating the bottom horizontal slider value on the table:
+        let hs_2 = document.getElementById("HS_2");
+        hs_2.innerText = "Horizontal Slider 2: " + localStorage.getItem("myInputValue_4");
+
+        // Updating the values of the vertical slider from the main page on the table
+        let vs_1 = document.getElementById("VS_1"); // Vertical slider 1
+        let vs_2 = document.getElementById("VS_2"); // Vertical slider 2
+
+        vs_1.innerText = "Vertical Slider 1: " + localStorage.getItem("myInputValue_1");
+        vs_2.innerText = "Vertical Slider 2: " + localStorage.getItem("myInputValue_2");
 
         // Update bubble with transition
         // $(document).ready(function() {

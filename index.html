@@ -16,6 +16,7 @@
         flex-direction: column;
         width: 100%;
         margin-right: 30px;
+        margin: 30px;
     }
     
     .image-container {
@@ -227,11 +228,24 @@
         background: #afad4c;
         cursor: pointer;
     }
+    
+    table {
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
 </style>
 
 <body>
     <!-- Container for the image gallery -->
     <div class="container">
+
+        <a href="http://localhost:8080/WTP_slider_recall.html">Go to next page</a>
 
         <div class="image-container">
             <img src="./images/beaver_busy.jpg" alt="some text">
@@ -255,32 +269,47 @@
             </div>
         </div>
 
-        <div class="image-container">
+        <table style="width:100%; max-width: 350px; min-width: 320px">
+            <tr>
+                <th>Page 1</th>
+                <th>Page 2</th>
+            </tr>
+            <tr>
+                <td id="VS_1">Vertical Slider 1: </td>
+                <td id="HS_1">Horizontal Slider 1: </td>
+            </tr>
+            <tr>
+                <td id="VS_2">Vertical Slider 2: </td>
+                <td id="HS_2">Horizontal Slider 2: </td>
+            </tr>
+        </table>
+
+        <!-- <div class="image-container">
             <img src="./images/beaver-cartoon.jpg" alt="some text">
             <div class="text-container">
                 <p>I will register and cheer on the rest of you, primarily by clicking “Like” on various things.</p>
-            </div>
-            <!-- Custom range slider_2 -->
-            <div class="slidecontainer">
+            </div> -->
+        <!-- Custom range slider_2 -->
+        <!-- <div class="slidecontainer">
                 <input type="range" class="slider_2" min="1" max="9" value="5" onchange="myFunction2()" id="opt2">
             </div>
-        </div>
+        </div> -->
 
-        <div class="image-container">
+        <!-- <div class="image-container">
             <img src="./images/beaver_003.jpg" alt="some text">
             <div class="text-container">
                 <p>I will register, delegate my vote, then tag along for the ride.</p>
-            </div>
-            <!-- Custom range slider_3 -->
-            <div class="slidecontainer">
+            </div> -->
+        <!-- Custom range slider_3 -->
+        <!-- <div class="slidecontainer">
                 <input type="range" class="slider_3" min="1" max="9" value="5" onchange="myFunction2()" id="opt2">
             </div>
         </div>
 
         <div class="image-container">
-            <img src="./images/beaver_busy.jpg" alt="some text">
-            <!-- <div class="list-and-slider-container"> -->
-            <div class="list-container">
+            <img src="./images/beaver_busy.jpg" alt="some text"> -->
+        <!-- <div class="list-and-slider-container"> -->
+        <!-- <div class="list-container">
                 <ul>
                     <li>
                         <p>opc 1</p>
@@ -301,15 +330,15 @@
                         <p>opc 6</p>
                     </li>
                 </ul>
-            </div>
-            <!-- Custom range slider_4 -->
-            <div class="slidecontainer">
+            </div> -->
+        <!-- Custom range slider_4 -->
+        <!-- <div class="slidecontainer">
                 <input type="range" class="slider_4" min="1" max="6" value="3" onchange="myFunction2()" id="opt2">
-            </div>
-            <!-- </div> -->
-        </div>
+            </div> -->
+        <!-- </div> -->
+        <!-- </div> -->
 
-        <div class="image-container">
+        <!-- <div class="image-container">
             <img src="./images/matrix_agent_smith.jpg" alt="some text">
             <div class="text-container">
                 <p>I currently have insider perks that will no doubt be lost, so I will be a drag on what you are doing.</p>
@@ -320,19 +349,55 @@
             <div class="text-container">
                 <p>This threatens my current privileges, power and control substantially, so I will be a roadblock.</p>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <script>
+        console.log(localStorage);
+
         function myFunction() {
             let value = document.getElementById("opt1").value;
+            localStorage.setItem("myInputValue_1", value);
+
             console.log("Left Range Slider Value: " + value);
+            console.log(localStorage);
+
+            let vr_1 = document.getElementById("VS_1");
+            vr_1.innerText = "Vertical Slider 1: " + localStorage.getItem("myInputValue_1");
         }
 
         function myFunction2() {
             let value = document.getElementById("opt2").value;
+            localStorage.setItem("myInputValue_2", value);
+
             console.log("Right Range Slider Value: " + value);
+            console.log(localStorage);
+
+            let vr_2 = document.getElementById("VS_2");
+            vr_2.innerText = "Vertical Slider 2: " + localStorage.getItem("myInputValue_2");
         }
+
+
+        // Updating the upper vertical slider value on the html:
+        document.getElementById("opt1").value = localStorage.getItem("myInputValue_1")
+
+        // Updating the bottom vertical slider value on the html:
+        document.getElementById("opt2").value = localStorage.getItem("myInputValue_2")
+
+        // Updating the upper vertical slider value on the table:
+        let vs_1 = document.getElementById("VS_1");
+        vs_1.innerText = "Vertical Slider 1: " + localStorage.getItem("myInputValue_1");
+
+        // Updating the bottom vertical slider value on the table:
+        let vs_2 = document.getElementById("VS_2");
+        vs_2.innerText = "Vertical Slider 2: " + localStorage.getItem("myInputValue_2");
+
+        // Updating the values of the horizontal sliders from the next page on the table
+        let hs_1 = document.getElementById("HS_1"); // Horizontal slider 1
+        let hs_2 = document.getElementById("HS_2"); // Horizontal slider 2
+
+        hs_1.innerText = "Horizontal Slider 1: " + localStorage.getItem("myInputValue_3");
+        hs_2.innerText = "Horizontal Slider 2: " + localStorage.getItem("myInputValue_4");
     </script>
 </body>
 
