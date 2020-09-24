@@ -22,7 +22,7 @@
         width: 50%;
         margin-right: 30px;
         justify-content: center;
-        margin: 30px;
+        /* margin: 30px; */
     }
     
     .image-container {
@@ -214,13 +214,22 @@
     th {
         text-align: left;
     }
+    
+    a {
+        margin: 10px;
+    }
 </style>
 
 <body>
     <!-- Container for the image gallery -->
     <div class="container">
 
-        <a href="http://localhost:8080/index.html">Go back</a>
+        <a href="http://localhost:8080/index.html">
+            <h3>
+                Go back
+            </h3>
+        </a>
+
         <div class="image-container">
             <img src="./images/bugs_cropped.png" alt="some text">
             <!-- <div class="list-and-slider-container"> -->
