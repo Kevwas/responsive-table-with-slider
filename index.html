@@ -274,7 +274,7 @@
             </div>
             <!-- Default range slider -->
             <div class="slidecontainer">
-                <input type="range" min="1" max="9" value="5" onchange="myFunction()" ontouchmove="myFunction()" id="opt1">
+                <input id="opt1" type="range" min="1" max="9" value="5" onclick="myFunction()" onchange="myFunction()" ontouchmove="myFunction()" onmousemove="myFunction()">
             </div>
         </div>
 
@@ -285,7 +285,7 @@
             </div>
             <!-- Custom range slider_1 -->
             <div class="slidecontainer">
-                <input type="range" class="slider_1" min="1" max="9" value="5" onchange="myFunction2()" ontouchmove="myFunction2()" id="opt2">
+                <input id="opt2" class="slider_1" type="range" min="1" max="9" value="5" onclick="myFunction2()" onchange="myFunction2()" onmousemove="myFunction2()" ontouchmove="myFunction2()">
             </div>
         </div>
 
@@ -390,8 +390,6 @@
     <script>
         console.log(localStorage);
 
-        document.getElementById("opt1").addEventListener("mousemove", () => myFunction());
-
         function myFunction() {
             let value = document.getElementById("opt1").value;
             localStorage.setItem("myInputValue_1", value);
@@ -402,8 +400,6 @@
             let vr_1 = document.getElementById("VS_1");
             vr_1.innerText = localStorage.getItem("myInputValue_1");
         }
-
-        document.getElementById("opt2").addEventListener("mousemove", () => myFunction2());
 
         function myFunction2() {
             let value = document.getElementById("opt2").value;

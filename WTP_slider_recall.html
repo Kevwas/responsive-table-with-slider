@@ -273,7 +273,7 @@
             </div>
         </div>
         <div class="range-slider">
-            <input type="range" class="range" min="0" max="10" step="1" value="5" onchange="updateOutput_1()" ontouchmove="updateOutput_1()" />
+            <input type="range" class="range" min="0" max="10" step="1" value="5" onclick="updateOutput_1()" onchange="updateOutput_1()" ontouchmove="updateOutput_1()" onmousemove="updateOutput_1()" />
             <div class="range-badge">5</div>
         </div>
 
@@ -289,7 +289,7 @@
             </div>
         </div>
         <div class="range-slider">
-            <input type="range" class="range-2" min="0" max="10" step="1" value="5" onchange="updateOutput_2()" ontouchmove="updateOutput_2()" />
+            <input type="range" class="range-2" min="0" max="10" step="1" value="5" onclick="updateOutput_2()" onchange="updateOutput_2()" ontouchmove="updateOutput_2()" onmousemove="updateOutput_2()" />
             <div class="range-badge-2">5</div>
         </div>
 
@@ -343,8 +343,6 @@
         // and comment the code on the bottom to get the bubble updated 
         // without any transition effect).
 
-        document.querySelector(".range").addEventListener("mousemove", () => updateOutput_1());
-
         function updateOutput_1() {
             let value = document.querySelector(".range").value;
             let badge = document.querySelector(".range-badge");
@@ -360,8 +358,6 @@
             let hs_1 = document.getElementById("HS_1");
             hs_1.innerText = localStorage.getItem("myInputValue_3");
         }
-
-        document.querySelector(".range-2").addEventListener("mousemove", () => updateOutput_2());
 
         function updateOutput_2() {
             let value = document.querySelector(".range-2").value;
